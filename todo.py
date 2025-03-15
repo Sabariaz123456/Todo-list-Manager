@@ -15,7 +15,7 @@ def save_tasks(tasks):
         json.dump(tasks, file, indent=4)
 
 def main():
-    st.set_page_config(page_title="Colorful To-Do List", page_icon="✅", layout="centered")
+    st.set_page_config(page_title="To-Do List", page_icon="✅", layout="centered")
     
     # Custom CSS for a colorful UI
     st.markdown("""
@@ -43,7 +43,7 @@ def main():
         </style>
     """, unsafe_allow_html=True)
 
-    st.title("To-Do List Manager")
+    st.title("🌈 Colorful To-Do List Manager")
     tasks = load_tasks()
     
     # Input section
@@ -52,7 +52,7 @@ def main():
         if new_task:
             tasks.append({"task": new_task, "done": False})
             save_tasks(tasks)
-            st.experimental_rerun()
+            st.rerun()
     
     # Task List
     st.subheader("📋 Your Tasks")
@@ -66,11 +66,12 @@ def main():
             if col2.button("✔️ Complete", key=f"complete_{index}"):
                 tasks[index]["done"] = True
                 save_tasks(tasks)
-                st.experimental_rerun()
+                st.rerun()
             if col3.button("🗑️ Remove", key=f"remove_{index}"):
                 tasks.pop(index)
                 save_tasks(tasks)
-                st.experimental_rerun()
+                st.rerun()
 
 if __name__ == "__main__":
     main()
+
