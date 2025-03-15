@@ -43,7 +43,7 @@ def main():
         </style>
     """, unsafe_allow_html=True)
 
-    st.title("🌈 Colorful To-Do List Manager")
+    st.title("To-Do List Manager")
     tasks = load_tasks()
     
     # Input section
